@@ -1,4 +1,4 @@
-# gotemplate-transpiler
+# gotemplate-node
 
 ### Example
 Go Template:
