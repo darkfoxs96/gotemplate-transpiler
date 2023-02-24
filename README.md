@@ -1,5 +1,7 @@
-# gotemplate-node
+# gotemplate-transpiller
+Makes it possible to convert Go Template to JavaScript code
 
+## gotemplate-node
 ### Example
 Go Template:
 ```gotemplate
