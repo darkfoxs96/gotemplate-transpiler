@@ -1,0 +1,55 @@
+{{define "some_tmp"}}
+    {{template "some_tmp2" .}}!
+{{end}}
+{{define "some_tmp2"}}T12 {{.}}{{end}}
+
+<div class="s1"></div>
+{{/* some comment */}}
+<div class="s2">
+    {{if eq .Exist true}}
+        <div class="d1">{{$.Obj.Text | printf "%s %s" "dom" | printf "%s" (printf "%s" 10 | printf "%s %s" true)}}</div>
+        <div class="d2">{{printf "%s" .Exist}} Hello1.1</div>
+    {{else if .Some}}
+        {{if eq .Obj.Text "Hi"}}
+            <div class="d3">{{.Exist}} Hello2.2</div>
+        {{end}}
+        <div class="d4">Hello2</div>
+    {{else}}
+        <div class="d5">Hello3</div>
+    {{end}}
+
+    {{with $.Obj.Text | printf "%s %s" "dom"}}
+        <div class="r1">{{.}}</div>
+    {{end}}
+
+    {{with $exist := .Exist}}
+        <div class="r2.1">{{$exist}}</div>
+    {{else}}
+        <div class="r2.2">Exist is FALSE</div>
+    {{end}}
+
+    {{$name := printf "%s: %s" "Name" $.Obj.Text}}
+    <div class="s3">Comment divider {{$name}}</div>
+
+    <div class="s4">
+        Comment divider2 {{template "some_tmp" .Exist}}
+    </div>
+
+    {{if .Exist}}
+        <div class="d6">Exist</div>
+    {{end}}
+
+    {{range $index, $user := .List}}
+        {{if eq $index 0}}
+            <div class="d7">Index zero: {{$user.Id}} - {{.Name}}</div>
+        {{else if eq $index 2}}
+            {{continue}}
+        {{else}}
+            <div class="d7">Index {{$index}}: {{$user.Id}} - {{.Name}}</div>
+        {{end}}
+    {{else}}
+        <div class="d7">No users</div>
+    {{end}}
+
+
+</div>
