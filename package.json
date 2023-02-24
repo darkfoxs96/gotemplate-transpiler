@@ -1,6 +1,6 @@
 {
   "name": "gotemplate-node",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkfoxs96/gotemplate-transpiler"
+  },
   "dependencies": {
     "@types/node": "^18.6.4",
     "esbuild": "^0.14.54",
